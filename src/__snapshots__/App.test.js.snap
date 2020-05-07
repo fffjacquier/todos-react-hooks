@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render snapshot 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 400px;"
+  >
+    <h1>
+      ToDos
+    </h1>
+    <form>
+      <input
+        placeholder="enter new task"
+        style="width: 350px; height: 15px;"
+        type="text"
+        value=""
+      />
+      <input
+        disabled=""
+        style="float: right; margin-top: 2px;"
+        type="submit"
+        value="add"
+      />
+    </form>
+    <hr />
+    <hr />
+    <div>
+      <span
+        style="color: blue; cursor: pointer; font-weight: bold;"
+      >
+        all
+      </span>
+       / 
+      <span
+        style="color: blue; cursor: pointer; font-weight: normal;"
+      >
+        active
+      </span>
+       / 
+      <span
+        style="color: blue; cursor: pointer; font-weight: normal;"
+      >
+        completed
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
