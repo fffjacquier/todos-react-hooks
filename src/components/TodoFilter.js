@@ -1,8 +1,13 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { filterTodos } from '../actions'
 
-const TodoFilterItem = ({ name, filterTodos, filter = 'all' }) => {
+const TodoFilterItem = ({ name }) => {
+  const dispatch = useDispatch()
+  const filter = useSelector((state) => state.filter)
+
   function handleFilter() {
-    filterTodos(name)
+    dispatch(filterTodos(name))
   }
   const style = {
     color: 'blue',
@@ -27,5 +32,4 @@ const TodoFilter = (props) => {
     </div>
   )
 }
-
 export default TodoFilter

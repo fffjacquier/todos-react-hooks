@@ -1,12 +1,17 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
-const TodoItem = ({ title, completed = false, id, toggleTodo, removeTodo }) => {
+import { toggleTodo, removeTodo } from '../actions'
+
+const TodoItem = ({ title, id, completed = false }) => {
+  const dispatch = useDispatch()
+
   function handleToggle() {
-    toggleTodo(id)
+    dispatch(toggleTodo(id))
   }
 
   function handleRemove() {
-    removeTodo(id)
+    dispatch(removeTodo(id))
   }
 
   return (

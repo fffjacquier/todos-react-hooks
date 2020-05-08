@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import ConnectedApp from './containers/ConnectedApp'
+import App from './components/App'
 import store from './configureStore'
 
 test('should render', () => {
   const div = document.createElement('div')
   ReactDOM.render(
     <Provider store={store}>
-      <ConnectedApp />
+      <App />
     </Provider>,
     div
   )
