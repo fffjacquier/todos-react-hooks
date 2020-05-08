@@ -10,7 +10,6 @@ import { fetchApiTodos } from './api'
 export function fetchTodos() {
   return async (dispatch) => {
     const todos = await fetchApiTodos()
-    console.log(todos)
     dispatch({ type: FETCH_TODOS, todos })
   }
 }
