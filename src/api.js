@@ -18,13 +18,14 @@ export const generateID = () => {
 }
 
 export const fetchApiTodos = () =>
+  console.log('fetchApiTodos') &&
   new Promise((resolve) =>
-    setTimeout(
-      () =>
-        resolve([
-          { id: generateID(), title: 'Write this damned book' },
-          { id: generateID(), title: 'Finish react hooks course' },
-        ]),
-      100
-    )
+    setTimeout(() => {
+      const initial = [
+        { id: generateID(), title: 'Write this damned book' },
+        { id: generateID(), title: 'Finish react hooks course' },
+      ]
+      console.log('initial', initial)
+      resolve(initial)
+    }, 100)
   )

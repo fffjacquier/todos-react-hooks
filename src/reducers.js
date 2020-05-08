@@ -1,13 +1,14 @@
+import { combineReducers } from 'redux'
 import { generateID } from './api'
 
-function filterReducer(state, action) {
+function filter(state = 'all', action) {
   if (action.type === 'FILTER_TODOS') {
     return action.filter
   }
   return state
 }
 
-function todosReducer(state, action) {
+function todos(state = [], action) {
   switch (action.type) {
     case 'FETCH_TODOS':
       return action.todos
@@ -30,14 +31,11 @@ function todosReducer(state, action) {
 
     case 'REMOVE_TODO':
       return state.filter((t) => t.id !== action.id)
+
     default:
       return state
   }
 }
 
-export default function appReducer(state, action) {
-  return {
-    todos: todosReducer(state.todos, action),
-    filter: filterReducer(state.filter, action),
-  }
-}
+const appReducer = combineReducers({ todos, filter })
+export default appReducer
