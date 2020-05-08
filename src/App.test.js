@@ -1,29 +1,18 @@
 import React from 'react'
-import { unmountComponentAtNode } from 'react-dom'
-//import { renderHook, act } from '@testing-library/react-hooks'
-import { render, cleanup } from '@testing-library/react'
-import App from './App'
-//import { StateContextWrapper } from './testUtils'
-//import appReducer from './reducers'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import ConnectedApp from './containers/ConnectedApp'
+import store from './configureStore'
 
-let container = null
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement('div')
-  document.body.appendChild(container)
-})
-
-afterEach(() => {
-  // cleanup on exiting
-  cleanup()
-  unmountComponentAtNode(container)
-  container.remove()
-  container = null
-})
-
-test('should render snapshot', () => {
-  const { asFragment } = render(<App />)
-  expect(asFragment(<App />)).toMatchSnapshot()
+test('should render', () => {
+  const div = document.createElement('div')
+  ReactDOM.render(
+    <Provider store={store}>
+      <ConnectedApp />
+    </Provider>,
+    div
+  )
+  ReactDOM.unmountComponentAtNode(div)
 })
 
 // test('should fetch data', () => {
